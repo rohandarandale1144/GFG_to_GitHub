@@ -100,7 +100,7 @@ struct Node
     }
 };
  */
-int height(Node*root)
+/*int height(Node*root)
 {
     if(root==NULL)
     return 0;
@@ -108,6 +108,24 @@ int height(Node*root)
     int right=height(root->right);
     int res=max(left, right)+1;
     return res;
+}*/
+int height(Node*root)
+{
+    if(root==NULL)
+        return 0;
+        
+    int low=height(root->left);
+    if(low== -1)
+    return -1;
+    
+    int high=height(root->right);
+    if(high== -1)
+    return -1;
+    
+    if(abs(low-high) > 1)
+    return -1;
+    
+    return 1+max(low, high);
 }
 class Solution{
     public:
@@ -116,11 +134,8 @@ class Solution{
     {
         //  Your Code here
         //Base case
-        if(root==NULL)
-        return true;
-        
         //left part
-        bool left=isBalanced(root->left);
+        /*bool left=isBalanced(root->left);
         //right part
         bool right=isBalanced(root->right);
         //height of left & right 
@@ -130,7 +145,9 @@ class Solution{
         return true;
         
         else
-        return false;
+        return false;*/
+        
+        return height(root)!= -1;
     }
 };
 
