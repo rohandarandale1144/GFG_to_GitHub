@@ -10,28 +10,16 @@ using namespace std;
 class Solution{
     public:
     // Function to insert element into the queue
+    map<int, int>mp;
     void insert(queue<int> &q, int k){
-        // Your code here
-        q.push(k);
+        mp[k]++;
     }
     
     // Function to find frequency of an element
     // return the frequency of k
     int findFrequency(queue<int> &q, int k){
         // Your code here
-        int cnt=0;
-        
-        queue<int>ans=q;
-        
-        while(!ans.empty())
-        {
-            if(ans.front() ==k)
-            {
-                cnt+=1;
-            }
-            ans.pop();
-        }
-        return cnt;
+        return mp[k];
     }
     
 };
