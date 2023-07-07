@@ -18,27 +18,7 @@ class Solution{
             }
             sort(arr1,arr1+n);
             sort(arr2,arr2+m);
-            /*int a=0, b=0, c=0;
-            long long arr3[n+m];
-            while(a<n && b<m)
-            {
-                if(arr1[a]<arr2[b])
-                {
-                    arr3[c++]=arr1[a++];
-                }
-                else
-                {
-                    arr3[c++]=arr2[b++];
-                }
-            }
-            while(a<n)
-            {
-                arr3[c++]=arr1[a++];
-            }
-            while(b<m)
-            {
-                arr3[c++]=arr2[b++];
-            }*/
+            
         } 
 };
 
