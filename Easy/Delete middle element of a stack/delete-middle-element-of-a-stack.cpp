@@ -9,30 +9,27 @@ using namespace std;
 
 class Solution
 {
-    private:
-    
-    void solve(stack<int>&s, int cnt, int n)
-    {
-        if(cnt==n/2)
-        {
-            s.pop();
-            return;
-        }
-        int num=s.top();
-        s.pop();
-        
-        solve(s, cnt+1, n);
-        
-        s.push(num);
-    }
-    
     public:
     //Function to delete middle element of a stack.
     void deleteMid(stack<int>&s, int sizeOfStack)
     {
-        // code here.. 
+        // code here..
+        stack<int>st;
+        int middle=(sizeOfStack)/2 +1;
         int cnt=0;
-        solve(s, cnt, sizeOfStack);
+        while(!s.empty()){
+            int top=s.top();
+            st.push(top);
+            s.pop();
+            cnt++;
+            if(cnt==middle)
+            st.pop();
+        }
+        while(!st.empty()){
+            int top=st.top();
+            s.push(top);
+            st.pop();
+        }
     }
 };
 
