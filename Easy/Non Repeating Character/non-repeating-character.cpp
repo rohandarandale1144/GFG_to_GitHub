@@ -12,24 +12,19 @@ class Solution
     char nonrepeatingCharacter(string S)
     {
        //Your code here
-       int n, i;
-       n=S.size();
-       char ans;
-       unordered_map<char, int>mp;
-       for(int i=0;i<n;i++)
+       map<char, int>mp;
+       for(int i=0;i<S.size();i++)
        {
            mp[S[i]]++;
        }
-       for(i=0;i<n;i++)
+       for(int i=0;i<S.size();i++)
        {
            if(mp[S[i]]==1)
-           {
-               return S[i];
-               //break;
-           }
+           return S[i];
        }
        return '$';
     }
+
 };
 
 //{ Driver Code Starts.
