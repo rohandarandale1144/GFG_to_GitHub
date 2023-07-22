@@ -40,23 +40,22 @@ class Solution
         int oneCnt=0;
         int twoCnt=0;
         
-        Node*temp=head;
+        Node *temp=head;
+        
         while(temp!=NULL)
         {
             if(temp->data==0)
-            {
-                zeroCnt++;
-            }
+            zeroCnt++;
+            
             else if(temp->data==1)
-            {
-                oneCnt++;
-            }
+            oneCnt++;
+            
             else
-            {
-                twoCnt++;
-            }
+            twoCnt++;
+            
             temp=temp->next;
         }
+        
         temp=head;
         while(temp!=NULL)
         {
@@ -65,11 +64,13 @@ class Solution
                 temp->data=0;
                 zeroCnt--;
             }
+            
             else if(oneCnt!=0)
             {
                 temp->data=1;
                 oneCnt--;
             }
+            
             else
             {
                 temp->data=2;
@@ -77,7 +78,6 @@ class Solution
             }
             temp=temp->next;
         }
-        
         return head;
     }
 };
