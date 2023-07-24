@@ -37,26 +37,30 @@ struct Node
 }; */
 
 // Should return  right view of tree
-void solve(Node*root, vector<int>&v, int lvl)
-{
-    if(root==NULL)
-    return;
-    if(lvl==v.size())
-    {
-        v.push_back(root->data);
-    }
-    solve(root->right, v, lvl+1);
-    solve(root->left, v, lvl+1);
-}
 class Solution
 {
+    private:
+    
+    void solve(vector<int>&v, Node*root, int level)
+    {
+        if(root==NULL)
+        return;
+        
+        if(level==v.size())
+        {
+            v.push_back(root->data);
+        }
+        solve(v, root->right, level+1);
+        solve(v, root->left, level+1);
+    }
+    
     public:
     //Function to return list containing elements of right view of binary tree.
     vector<int> rightView(Node *root)
     {
        // Your Code here
        vector<int>v;
-       solve(root, v, 0);
+       solve(v, root, 0);
        return v;
     }
 };
