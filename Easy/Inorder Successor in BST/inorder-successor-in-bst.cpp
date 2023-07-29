@@ -115,6 +115,7 @@ void inorder(vector<int>&v, Node*root)
     v.push_back(root->data);
     inorder(v, root->right);
 }
+
 class Solution{
   public:
     // returns the inorder successor of the Node x in BST (rooted at 'root')
