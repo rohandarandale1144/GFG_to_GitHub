@@ -5,6 +5,7 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
     private:
+    
     void dfs(int node, vector<int>adj[], int vis[], vector<int>&ls)
     {
         vis[node]=1;
@@ -18,15 +19,16 @@ class Solution {
             }
         }
     }
+    
   public:
     // Function to return a list containing the DFS traversal of the graph.
     vector<int> dfsOfGraph(int V, vector<int> adj[]) {
         // Code here
         int visited[V]={0};
         int start=0;
-        vector<int>lst;
-        dfs(start, adj, visited, lst);
-        return lst;
+        vector<int>v;
+        dfs(start, adj, visited, v);
+        return v;
     }
 };
 
