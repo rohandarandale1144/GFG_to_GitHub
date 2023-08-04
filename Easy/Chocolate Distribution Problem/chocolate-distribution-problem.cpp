@@ -20,6 +20,7 @@ class Solution{
         j++;
     }
     return mini;
+    
     }   
 };
 
