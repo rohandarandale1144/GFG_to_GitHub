@@ -27,7 +27,7 @@ class Solution{
         s.push(num);
     }
     
-public:
+    public:
     void Reverse(stack<int> &s){
         
         if(s.empty())
