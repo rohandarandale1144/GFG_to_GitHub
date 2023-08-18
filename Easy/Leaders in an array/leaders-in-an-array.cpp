@@ -15,15 +15,17 @@ class Solution{
         // Code here
         vector<int>v;
         int maxi=a[n-1];
+        
         for(int i=n-1;i>=0;i--)
         {
-            if(a[i]>=maxi)
+            if(a[i] >=maxi)
             {
                 maxi=a[i];
                 v.push_back(maxi);
             }
         }
         reverse(v.begin(), v.end());
+        
         return v;
     }
 };
