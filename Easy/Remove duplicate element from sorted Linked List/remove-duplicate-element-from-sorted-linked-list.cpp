@@ -69,14 +69,15 @@ struct Node {
 Node *removeDuplicates(Node *head)
 {
  // your code goes here
- Node* temp=head;
- while(temp->next != NULL){
-     if(temp->next->data == temp->data){
-         temp->next = temp->next->next;
+     Node*curr=head;
+     while(curr->next!=NULL)
+     {
+         if(curr->next->data==curr->data)
+         {
+             curr->next=curr->next->next;
+         }
+         else
+         curr=curr->next;
      }
-     else{
-         temp = temp->next;
-     }
- }
- return head;
- }
+     return head;
+}
