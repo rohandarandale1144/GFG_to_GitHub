@@ -89,13 +89,14 @@ Node* deleteNode(Node *head,int x)
     //Your code here
     if(x==1)
     return head->next;
-    Node*temp=head;
+    
+    Node*curr=head;
     int cnt=1;
-    while(cnt!=x-1){
-        temp=temp->next;
+    while(cnt != x-1)
+    {
+        curr=curr->next;
         cnt++;
     }
-    
-    temp->next=temp->next->next;
+    curr->next=curr->next->next;
     return head;
 }
