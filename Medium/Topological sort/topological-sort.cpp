@@ -6,10 +6,10 @@ using namespace std;
 class Solution
 {
     private:
-    
     void dfs(int node, int vis[], vector<int>adj[], stack<int>&st)
     {
         vis[node]=1;
+        
         for(auto it:adj[node])
         {
             if(!vis[it])
@@ -27,7 +27,9 @@ class Solution
 	    // code here
 	    vector<int>ans;
 	    stack<int>st;
+	    
 	    int vis[V]={0};
+	    
 	    for(int i=0;i<V;i++)
 	    {
 	        if(!vis[i])
