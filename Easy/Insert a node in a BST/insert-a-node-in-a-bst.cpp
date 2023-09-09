@@ -15,7 +15,55 @@ struct Node {
     }
 };
 
-Node* insert(Node* node, int data);
+
+// } Driver Code Ends
+// Function to insert a node in a BST.
+
+/*
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = right = NULL;
+    }
+};
+*/
+
+class Solution
+{
+    private:
+    
+    Node*find(Node*root, int key)
+    {
+        if(root==NULL)
+        return new Node(key);
+        else if(root->data==key)
+        {
+            return root;
+        }
+        if(root->data>key)
+        {
+            root->left=find(root->left, key);
+        }
+        else
+        {
+            root->right=find(root->right, key);
+        }
+        return root;
+    }
+    
+    public:
+        Node* insert(Node* node, int data) {
+            return find(node, data);
+    }
+
+};
+
+
+//{ Driver Code Starts.
 
 // Function to Build Tree
 Node* buildTree(string str) {
@@ -99,8 +147,8 @@ int main() {
         getline(cin, s);
         int k = stoi(s);
         // getline(cin, s);
-
-        insert(root, k);
+        Solution ob;
+        ob.insert(root, k);
         vector<int> v;
         inorder(root, v);
         for (int i = 0; i < v.size(); i++) cout << v[i] << " ";
@@ -112,28 +160,3 @@ int main() {
 }
 
 // } Driver Code Ends
-
-
-// Function to insert a node in a BST.
-Node*find(Node*root, int key)
-{
-    if(root==NULL)
-    return new Node(key);
-    else if(root->data==key)
-    {
-        return root;
-    }
-    if(root->data>key)
-    {
-        root->left=find(root->left, key);
-    }
-    else
-    {
-        root->right=find(root->right, key);
-    }
-    return root;
-}
-Node* insert(Node* root, int Key) {
-    // Your code here
-    return find(root, Key);
-}
