@@ -9,7 +9,6 @@ using namespace std;
 
 class Solution{
 public:
-
     bool solve(int idx, int arr[], int N, int target, vector<vector<int>>&dp)
     {
         if(idx>=N)
