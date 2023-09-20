@@ -23,7 +23,6 @@ class Solution
         
         return dp[idx]=max(loot, notLoot);
     }
-    
     public:
     //Function to find the maximum money the thief can get.
     int FindMaxSum(int arr[], int n)
