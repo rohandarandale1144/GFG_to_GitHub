@@ -14,8 +14,8 @@ class Solution{
         // Your code here
         if(n==1)
         return 1;
-        int ans=0;
-        int sum=0;
+        
+        int ans=0, sum=0;
         for(int i=0;i<n;i++)
         {
             sum+=a[i];
@@ -23,6 +23,7 @@ class Solution{
         for(int i=0;i<n;i++)
         {
             sum-=a[i];
+            
             if(sum==ans)
             {
                 return i+1;
