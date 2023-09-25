@@ -13,9 +13,13 @@ class Solution{
     vector<vector<int> > fourSum(vector<int> &arr, int K) {
         // Your code goes here
         vector<vector<int>>ans;
+        
         sort(arr.begin(), arr.end());
+        
         int n=arr.size();
+        
         set<vector<int>>s;
+        
         for(int i=0;i<n;i++)
         {
             for(int j=i+1;j<n;j++)
@@ -31,7 +35,6 @@ class Solution{
                     {
                         s.insert({arr[i], arr[j], arr[k], arr[l]});
                     
-                        //ans.push_back(s);
                         k++;
                         l--;
                     }
@@ -46,10 +49,12 @@ class Solution{
                 }
             }
         }
+        
         for(auto x:s)
         {
             ans.push_back(x);
         }
+        
         return ans;
     }
 };
