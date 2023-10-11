@@ -100,53 +100,30 @@ struct Node
     }
 };
  */
-/*int height(Node*root)
-{
-    if(root==NULL)
-    return 0;
-    int left=height(root->left);
-    int right=height(root->right);
-    int res=max(left, right)+1;
-    return res;
-}*/
-int height(Node*root)
-{
-    if(root==NULL)
-        return 0;
+    int height(Node*root)
+    {
+        if(root==NULL)
+            return 0;
+            
+        int low=height(root->left);
+        if(low== -1)
+        return -1;
         
-    int low=height(root->left);
-    if(low== -1)
-    return -1;
-    
-    int high=height(root->right);
-    if(high== -1)
-    return -1;
-    
-    if(abs(low-high) > 1)
-    return -1;
-    
-    return 1+max(low, high);
-}
+        int high=height(root->right);
+        if(high== -1)
+        return -1;
+        
+        if(abs(low-high) > 1)
+        return -1;
+        
+        return 1+max(low, high);
+    }
 class Solution{
     public:
     //Function to check whether a binary tree is balanced or not.
     bool isBalanced(Node *root)
     {
         //  Your Code here
-        //Base case
-        //left part
-        /*bool left=isBalanced(root->left);
-        //right part
-        bool right=isBalanced(root->right);
-        //height of left & right 
-        bool ans=abs(height(root->left)-height(root->right))<=1;
-        
-        if(left && right && ans)
-        return true;
-        
-        else
-        return false;*/
-        
         return height(root)!= -1;
     }
 };
