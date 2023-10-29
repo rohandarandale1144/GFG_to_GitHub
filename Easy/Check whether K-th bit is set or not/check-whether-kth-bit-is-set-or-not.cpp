@@ -18,9 +18,7 @@ class Solution
         // Your code here
         // It can be a one liner logic!! Think of it!!
         int ans=n & (1<<k);
-        if(ans==0)
-        return false;
-        else return true;
+        return ans == 0 ? false : true;
     }
 };
 
