@@ -3,31 +3,27 @@
 using namespace std; 
 
 // } Driver Code Ends
-
-void find(int idx, vector<int>A, vector<int>&ans, int sum){
-        
-        //int sum=0;
-        if(idx==A.size()){
-            ans.push_back(sum);
-            return ;
-        }
-        
-        //Exclude
-        find(idx+1, A, ans, sum);
-        
-        //Include
-        find(idx+1, A, ans, sum+A[idx]);
-    }
 class Solution
 {
+    private:
+    void find(int idx, int sum, vector<int>&ans, vector<int>&v){
+        if(idx==v.size()){
+            ans.push_back(sum);
+            return;
+        }
+        
+        find(idx+1, sum+v[idx], ans, v);
+        
+        find(idx+1, sum, ans, v);
+    }
 public:
-    vector<int> subsetSums(vector<int> A, int N)
+    vector<int> subsetSums(vector<int> arr, int N)
     {
         // Write Your Code here
         vector<int>ans;
         int sum=0;
-        find(0, A, ans, sum);
-        //sort(ans.begin(), ans.end());
+        find(0, sum, ans, arr);
+        sort(ans.begin(), ans.end());
         return ans;
     }
 };
