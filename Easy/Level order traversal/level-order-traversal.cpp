@@ -47,8 +47,8 @@ class Solution
       //Your code here
       vector<int>v;
       queue<Node*> q;
-    q.push(node);
-    q.push(NULL);
+        q.push(node);
+        q.push(NULL);
     while (!q.empty())
     {
         Node *temp = q.front();
@@ -56,7 +56,6 @@ class Solution
 
         if (temp == NULL)
         {
-            //cout << endl;
             if (!q.empty())
             {
                 q.push(NULL);
