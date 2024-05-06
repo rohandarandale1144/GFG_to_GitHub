@@ -112,32 +112,25 @@ int main()
      int data;
      Node* left, *right;
 }; */
-
-void final(vector<int>&v, Node*node)
-{
-    if(node==NULL)
+void solve(Node*root, vector<int>&v){
+    if(root==NULL)
     return;
-    if(node->left && node->right==NULL)
-    {
-        v.push_back(node->left->data);
-    }
-    if(node->right && node->left==NULL)
-    {
-        v.push_back(node->right->data);
-    }
-    final(v, node->left);
-    final(v, node->right);
+    
+    if(root->left && root->right==NULL)
+    v.push_back(root->left->data);
+    if(root->right && root->left==NULL)
+    v.push_back(root->right->data);
+    solve(root->left, v);
+    solve(root->right, v);
 }
 vector<int> noSibling(Node* node)
 {
     // code here
     vector<int>v;
-    final(v, node);
+    solve(node, v);
     sort(v.begin(), v.end());
-    if(v.size()==0)
-    {
+    if(v.size()==0){
         v.push_back(-1);
     }
-    //return {-1};
     return v;
 }
