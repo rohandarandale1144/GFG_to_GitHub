@@ -1,53 +1,47 @@
 //{ Driver Code Starts
-#include<bits/stdc++.h> 
-using namespace std; 
+#include <bits/stdc++.h>
+using namespace std;
+
 
 // } Driver Code Ends
-class Solution
-{
+class Solution {
     private:
-    void find(int idx, int sum, vector<int>&ans, vector<int>&v){
-        if(idx==v.size()){
+    void solve(int idx, vector<int>&arr, int n, vector<int>&ans, int sum){
+        if(idx==n){
             ans.push_back(sum);
             return;
         }
-        
-        find(idx+1, sum+v[idx], ans, v);
-        
-        find(idx+1, sum, ans, v);
+        solve(idx+1, arr, n, ans, sum+arr[idx]);
+        solve(idx+1, arr, n, ans, sum);
     }
-public:
-    vector<int> subsetSums(vector<int> arr, int N)
-    {
+  public:
+    vector<int> subsetSums(vector<int> arr, int n) {
         // Write Your Code here
-        vector<int>ans;
-        int sum=0;
-        find(0, sum, ans, arr);
-        sort(ans.begin(), ans.end());
-        return ans;
+        vector<int>v;
+        solve(0, arr, n, v, 0);
+        sort(v.begin(), v.end());
+        return v;
     }
 };
 
 //{ Driver Code Starts.
-int main()
-{
+int main() {
     int t;
     cin >> t;
-    while (t--)
-    {
+    while (t--) {
         int N;
-        cin>>N;
+        cin >> N;
         vector<int> arr(N);
-        for(int i = 0 ; i < N ; i++){
+        for (int i = 0; i < N; i++) {
             cin >> arr[i];
         }
         Solution ob;
-        vector<int> ans = ob.subsetSums(arr,N);
-        sort(ans.begin(),ans.end());
-        for(auto sum : ans){
-            cout<< sum<<" ";
+        vector<int> ans = ob.subsetSums(arr, N);
+        sort(ans.begin(), ans.end());
+        for (auto sum : ans) {
+            cout << sum << " ";
         }
-        cout<<endl;
+        cout << endl;
     }
     return 0;
 }
