@@ -11,24 +11,20 @@ class Solution
     bool isAnagram(string a, string b){
         
         // Your code here
+        sort(a.begin(), a.end());
+        sort(b.begin(), b.end());
         int n=a.size();
         int m=b.size();
-        map<char, int>mp;
+        int i=0, j=0;
         if(n!=m){
             return false;
         }
-        for(int i=0;i<n;i++){
-            mp[a[i]]++;
-        }
-        for(int i=0;i<m;i++){
-            if(mp.find(b[i])!=mp.end()){
-                mp[b[i]]--;
-            }
-        }
-        for(auto it:mp){
-            if(it.second>=1){
+        while(i<n && j<m){
+            if(a[i]!=b[j]){
                 return false;
             }
+            i++;
+            j++;
         }
         return true;
     }
