@@ -8,16 +8,29 @@ class Solution {
   public:
     bool canSplit(vector<int>& arr) {
         // code here
-        int left=0;
+        // int left=0;
+        // int n=arr.size();
+        // int right=0;
+        // for(int i=0;i<n;i++){
+        //     left+=arr[i];
+        // }
+        // for(int i=0;i<n;i++){
+        //     left-=arr[i];
+        //     right+=arr[i];
+        //     if(left==right){
+        //         return true;
+        //     }
+        // }
+        // return false;
         int n=arr.size();
-        int right=0;
+        int total=0;
+        int pref=0;
         for(int i=0;i<n;i++){
-            left+=arr[i];
+            total+=arr[i];
         }
         for(int i=0;i<n;i++){
-            left-=arr[i];
-            right+=arr[i];
-            if(left==right){
+            pref+=arr[i];
+            if(pref*2 == total){
                 return true;
             }
         }
