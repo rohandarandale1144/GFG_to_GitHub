@@ -3,32 +3,32 @@
 using namespace std;
 
 
-
 // } Driver Code Ends
-class Solution{
-    public:
-    //Complete this function
-    //Function to sort the array according to frequency of elements.
-    static bool compare(pair<int, int>a, pair<int, int>b){
+class Solution {
+    private:
+    static bool cmp(pair<int, int>&a, pair<int, int>&b){
         if(a.second==b.second){
             return a.first<b.first;
         }
         return a.second>b.second;
     }
-    vector<int> sortByFreq(int arr[],int n)
-    {
-        //Your code here
+  public:
+    // Complete this function
+    // Function to sort the array according to frequency of elements.
+    vector<int> sortByFreq(vector<int>& arr) {
+        // Your code here
         map<int, int>mp;
-        vector<int>v;
+        int n=arr.size();
         for(int i=0;i<n;i++){
             mp[arr[i]]++;
         }
-        vector<pair<int, int>>p;
+        vector<pair<int, int>>pq;
         for(auto it:mp){
-            p.push_back(it);
+            pq.push_back(it);
         }
-        sort(p.begin(), p.end(), compare);
-        for(auto it:p){
+        sort(pq.begin(), pq.end(), cmp);
+        vector<int>v;
+       for(auto it:pq){
             int cnt=it.second;
             while(cnt--){
                 v.push_back(it.first);
@@ -41,33 +41,30 @@ class Solution{
 //{ Driver Code Starts.
 
 int main() {
-	
-	
-	int t;
-	cin >> t;
-	
-	
-	while(t--){
-	    
-	    
-	    int n;
-	    cin >> n;
-	    
-	    int a[n+1];
-	    
-	    for(int i = 0;i<n;i++){
-	        cin >> a[i];
-	    }
-	    Solution obj;
-	    vector<int> v;
-	    v = obj.sortByFreq(a,n);
-	    for(int i:v)
-	        cout<<i<<" ";
-	    cout << endl;
-	}
-	
-	return 0;
-}
 
+    int t;
+    cin >> t;
+    cin.ignore();
+    while (t--) {
+
+        string input;
+        int num;
+        vector<int> arr;
+
+        getline(cin, input);
+        stringstream s2(input);
+        while (s2 >> num) {
+            arr.push_back(num);
+        }
+        Solution obj;
+        vector<int> v;
+        v = obj.sortByFreq(arr);
+        for (int i : v)
+            cout << i << " ";
+        cout << endl;
+    }
+
+    return 0;
+}
 
 // } Driver Code Ends
