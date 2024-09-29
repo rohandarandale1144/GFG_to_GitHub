@@ -29,7 +29,7 @@ Node* buildTree(string str) {
     for (string str; iss >> str;)
         ip.push_back(str);
 
-    // Create the root of the tree
+    // Create the root of the tree.....
     Node* root = new Node(stoi(ip[0]));
 
     // Push the root to the queue
@@ -92,11 +92,13 @@ struct Node {
     }
 };
 */
-void solve(vector<int>&v, queue<Node*>q, Node*root){
-    if(root==NULL){
+class Solution {
+    private:
+    void solve(vector<int>&v, queue<Node*>&q, Node*root){
+        if(root==NULL){
             return;
         }
-    q.push(root);
+        q.push(root);
         while(!q.empty()){
             int n=q.size();
             for(int i=0;i<n;i++){
@@ -111,8 +113,7 @@ void solve(vector<int>&v, queue<Node*>q, Node*root){
                 }
             }
         }
-}
-class Solution {
+    }
   public:
     // Function to return a list of integers denoting the node
     // values of both the BST in a sorted order.
